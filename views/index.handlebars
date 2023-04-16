@@ -1,0 +1,16 @@
+<h1>{{page_title}}</h1>
+
+{{#if content}}
+{{!-- {{books}} --}}
+<div class="card">
+    <h2>{{page_title}}</h2>
+    {{#each content}}
+    <div class="card2">
+        <h3>{{this._id}}. {{this.title}}</h3>
+        <a href="bookpage.handlebars">More Info</a>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<p>No Content</p>
+{{/if}}

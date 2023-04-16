@@ -1,0 +1,36 @@
+<h1>{{page_title}}</h1>
+
+{{#if content}}
+{{!-- {{books}} --}}
+<div class="card">
+    <h2>{{page_title}}</h2>
+    {{!-- {{#each content}} --}}
+    <div class="card2">
+        <h4>Id: </h4>
+        <p>{{content._id}}</p>
+        <h4>Title: </h4>
+        <p>{{content.title}}</p>
+        <h4>ISBN: </h4>
+        <p>{{content.isbn}}</p>
+        <h4>Page Count: </h4>
+        <p>{{content.pageCount}}</p>
+        <h4>Publish Date: </h4>
+        <p>{{content.publishedDate}}</p>
+        <h4>Thumbnail URL: </h4>
+        <p>{{content.thumbnailUrl}}</p>
+        <h4>Short Descriptipn: </h4>
+        <p>{{content.shortDescription}}</p>
+        <h4>Long Description: </h4>
+        <p>{{content.longDescription}}</p>
+        <h4>Status: </h4>
+        <p>{{content.status}}</p>
+        <h4>Authors: </h4>
+        <p>{{content.authors}}</p>
+        <h4>Catagories: </h4>
+        <p>{{content.categories}}</p>
+    </div>
+    {{!-- {{/each}} --}}
+</div>
+{{else}}
+<p>No Content</p>
+{{/if}}
