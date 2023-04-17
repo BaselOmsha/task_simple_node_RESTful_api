@@ -1,16 +1,23 @@
 <h1>{{page_title}}</h1>
-
 {{#if content}}
-{{!-- {{books}} --}}
-<div class="card">
-    <h2>{{page_title}}</h2>
-    {{#each content}}
-    <div class="card2">
-        <h3>{{this._id}}. {{this.title}}</h3>
-        <a href="bookpage.handlebars">More Info</a>
-    </div>
-    {{/each}}
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>More Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each content}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.title}}</td>
+            <td><a href="./bookpage/{{this._id}}"> More Info</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
 {{else}}
 <p>No Content</p>
 {{/if}}

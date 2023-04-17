@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const fs = require('fs');
+const handlebars = require("handlebars");
 
 const app = express();
 
@@ -17,6 +18,10 @@ app.engine('handlebars', exphbs.engine({
 app.set('view engine', 'handlebars');
 
 let booksData = "./books.json"
+
+handlebars.registerHelper("eq", function(a, b) {
+    return a === b;
+  });
 
 const jsonReader = async filePath => {
     try {
@@ -41,7 +46,7 @@ app.get('/', async (req, res) => {
         data.forEach((book, index) => {
             console.log(index + 1 + ". " + "Book title is:" + book.title);
             // res.write(index+1 + ". " + "Book title is:" + book.title + "\n");
-            titles.push({title:  book.title});
+            titles.push({ title: book.title });
         });
         res.json(titles);
         // res.send(titles);
@@ -53,11 +58,11 @@ app.get('/', async (req, res) => {
 });
 
 // GET ALL BOOKS RENDERD
-app.get('api/main', async (req, res) => {
+app.get('/api/main', async (req, res) => {
     try {
         let data = await jsonReader(booksData);
         res.render('index', {
-            page_title: "Book Database",
+            page_title: "Library",
             content: data
         });
     } catch (err) {
@@ -74,16 +79,7 @@ app.get('/:id', async (req, res) => {
         const book = data.find(book => Number(book._id) === id);
         // console.log("id " +book._id);
         if (book) {
-            res.json({
-                _id: book._id, title: book.title,
-                isbn: book.isbn, pageCount: book.pageCount,
-                publishedDate: book.publishedDate, thumbnailUrl: book.thumbnailUrl,
-                shortDescription: book.shortDescription, longDescription: book.longDescription,
-                status: book.status, authors: book.authors, categories: book.categories
-            });
-            // res.send(JSON.stringify(book, null, 2));
-            
-
+            res.json(book);
         } else {
             res.status(404).json({
                 msg: 'Not found'
@@ -108,9 +104,11 @@ app.get('/api/bookpage/:id', async (req, res) => {
                 content: book
             });
         } else {
-            res.status(404).json({
-                msg: 'Not found'
-            });
+            res.status(404).json(
+                {
+                    msg: 'Not found'
+                }
+            );
         }
     } catch (err) {
         console.log(err);
