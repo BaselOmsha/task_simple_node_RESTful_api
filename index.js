@@ -34,8 +34,38 @@ const jsonReader = async filePath => {
         console.log("Error reading or parsing JSON file:", err);
     }
 }
+
+// CREATE A PRODUCT JSON
+app.post('/api/products', async (req, res) => {
+    if (!req.body.title) {
+        res.status(400).json(
+            { msg: 'Title was not sent' }
+        )
+    }
+    else {
+        const data = await jsonReader(booksData);
+        const newId = data[data.length - 1]._id + 1;
+        const newBook = {
+            id: newId, title: req.body.title, isbn: req.body.isbn,
+            pageCount: req.body.pageCount, publishedDate: req.body.publishedDate, thumbnailUrl: req.body.thumbnailUrl,
+            shortDescription: req.body.shortDescription, longDescription: req.body.longDescription, status: req.body.status,
+            authors: req.body.authors, categories: req.body.categories
+        }
+        data.push(newBook);
+
+        await fs.promises.writeFile("books.json", JSON.stringify(data));
+
+        const url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${newId}`;
+        res.location(url);
+        // res.status(201).location('/api/products/' + newProduct.id).json(newProduct);
+        res.status(201).json(newBook);
+    }
+});
+
+// THE USER CREATRES A BOOK
+
 // GET ALL BOOKS JSON
-app.get('/', async (req, res) => {
+app.get('/api/main', async (req, res) => {
     try {
         let data = await jsonReader(booksData);
         let titles = [];
@@ -58,7 +88,7 @@ app.get('/', async (req, res) => {
 });
 
 // GET ALL BOOKS RENDERD
-app.get('/api/main', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         let data = await jsonReader(booksData);
         res.render('index', {
@@ -72,7 +102,7 @@ app.get('/api/main', async (req, res) => {
 });
 
 // GET ONE BOOK JSON http://localhost:5000/2
-app.get('/:id', async (req, res) => {
+app.get('/api/bookpage/:id', async (req, res) => {
     try {
         let data = await jsonReader(booksData);
         const id = Number(req.params.id);
@@ -92,7 +122,7 @@ app.get('/:id', async (req, res) => {
 });
 
 // GET ONE BOOK RENDERED http://localhost:5000/api/bookpage/2
-app.get('/api/bookpage/:id', async (req, res) => {
+app.get('/bookpage/:id', async (req, res) => {
     try {
         let data = await jsonReader(booksData);
         const id = Number(req.params.id);

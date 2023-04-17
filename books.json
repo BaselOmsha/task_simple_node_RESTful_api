@@ -216,5 +216,25 @@
         "categories": [
             "Web Development"
         ]
+    },
+    {
+        "id": 12,
+        "title": "Song of Ice and Fire",
+        "isbn": "00",
+        "pageCount": 816,
+        "publishedDate": {
+            "$date": "2009-04-01T00:00:00.000-0700"
+        },
+        "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg",
+        "shortDescription": "gantasy book",
+        "longDescription": "Game of throne is based on it",
+        "status": "PUBLISH",
+        "authors": [
+            "George R. R. Martin"
+        ],
+        "categories": [
+            "Fantasy",
+            "Fiction"
+        ]
     }
 ]
