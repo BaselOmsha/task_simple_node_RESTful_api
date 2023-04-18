@@ -9,7 +9,7 @@ main {
 
 table, h1 {
     width: fit-content;
-    margin: 0 auto; /*Center horizontally*/
+    margin: 0 auto; 
 }
 
 td {
