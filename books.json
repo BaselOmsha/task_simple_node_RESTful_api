@@ -218,7 +218,7 @@
         ]
     },
     {
-        "id": 12,
+        "_id": 12,
         "title": "Song of Ice and Fire",
         "isbn": "00",
         "pageCount": 816,
@@ -235,6 +235,25 @@
         "categories": [
             "Fantasy",
             "Fiction"
+        ]
+    },
+    {
+        "_id": 13,
+        "title": "test2",
+        "isbn": "test2",
+        "pageCount": 10,
+        "publishedDate": {
+            "$date": "2009-04-01T00:00:00.000-0700"
+        },
+        "thumbnailUrl": "test",
+        "shortDescription": "test",
+        "longDescription": "test",
+        "status": "test",
+        "authors": [
+            "test"
+        ],
+        "categories": [
+            "test"
         ]
     }
 ]
