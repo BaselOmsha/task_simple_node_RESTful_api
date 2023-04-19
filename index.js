@@ -18,6 +18,9 @@ app.set('view engine', 'handlebars');
 handlebars.registerHelper("eq", function (a, b) {
     return a === b;
 });
+handlebars.registerHelper('or', function(a, b) {
+      return a || b;
+  });
 
 app.use('', require('./routes/rendered-books.js'));
 app.use('', require('./routes/api-books.js'));

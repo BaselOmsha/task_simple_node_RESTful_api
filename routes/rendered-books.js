@@ -7,4 +7,8 @@ router.get("/", bookesController.home);
 
 router.get("/bookpage/:id", bookesController.getOnebook);
 
+router.post("/newbook", bookesController.create);
+
+router.get("/add_book", bookesController.createbook);
+
 module.exports = router;

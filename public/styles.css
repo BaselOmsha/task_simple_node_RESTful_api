@@ -5,6 +5,7 @@ main {
     justify-content: center; /* Center vertically */
     padding-top: 10px;
     padding-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 table, h1 {
@@ -91,6 +92,10 @@ tr:nth-child(even) {
     border-radius: 30px;
 }
 
+.row {
+    background-color: red;
+}
+
 .footer {
     display: flex;
     flex: content;
@@ -102,3 +107,55 @@ tr:nth-child(even) {
     height: 200px;
     width: 100%;
 }
+
+.form-row input, .form-row select, .form-row textarea {
+    width: 300px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    font-size: 20px;
+    font-variant:normal;
+    font-weight: bold;
+    height: auto;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 100px;
+    width: 100%;
+}
+
+label {
+    margin-right: 10px;
+    margin-left: 30px;
+    width: 150px;
+    text-align: right;
+}
+
+label[for][required]:after {
+    content: " *";
+    color: #000;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #008000;
+    height: auto;
+    font-size: 30px;
+    font-variant:normal;
+    color: #fff;
+}
+  

@@ -1,0 +1,51 @@
+<h1>{{page_title}}</h1>
+<form action="" method="post" class="form">
+    <div class="form-row">
+        <label for="title" required>Title:</label>
+        <input type="text" name="title" id="title" required placeholder="Enter title">
+
+        <label for="isbn" required>ISBN:</label>
+        <input type="text" name="isbn" id="isbn" required placeholder="Enter ISBN">
+    </div>
+
+    <div class="form-row">
+        <label for="pageCount" required>Page Count:</label>
+        <input type="number" name="pageCount" id="pageCount" required placeholder="Enter page count">
+
+        <label for="thumbnailUrl">Thumbnail URL:</label>
+        <input type="url" name="thumbnailUrl" id="thumbnailUrl" placeholder="Enter thumbnail URL">
+    </div>
+
+    <div class="form-row">
+        <label for="shortDescription">Short Description:</label>
+        <textarea name="shortDescription" id="shortDescription" placeholder="Enter short description"></textarea>
+
+        <label for="publishedDate">Published Date:</label>
+        <input type="date" name="publishedDate" id="publishedDate" placeholder="Select published date">
+    </div>
+
+    <div class="form-row">
+        <label for="longDescription">Long Description:</label>
+        <textarea name="longDescription" id="longDescription" placeholder="Enter long description"></textarea>
+
+        <label for="status">Status:</label>
+        <select name="status" id="status" aria-describedby="status-description">
+            <option value="">Select Status</option>
+            <option value="Available">Available</option>
+            <option value="Out of Stock">Out of Stock</option>
+            <option value="Coming Soon">Coming Soon</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="authors" required>Authors:</label>
+        <input type="text" name="authors" id="authors" required placeholder="Enter author names">
+
+        <label for="categories">Categories:</label>
+        <input type="text" name="categories" id="categories" placeholder="Enter categories">
+    </div>
+
+    <div class="form-row">
+        <input type="submit" value="Submit" class="button">
+    </div>
+</form>

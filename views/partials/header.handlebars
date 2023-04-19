@@ -4,7 +4,7 @@
             {{#if (eq page_title "Library")}}
             <a class="navbar-brand" href="./">Logo</a>
             {{/if}}
-            {{#if (eq page_title "Book Info")}}
+            {{#if (or (eq page_title "Book Info") (eq page_title "Add Books Form"))}}
             <a class="navbar-brand" href="../">Logo</a>
             {{/if}}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -18,12 +18,17 @@
                         {{#if (eq page_title "Library")}}
                         <a class="navbar-brand" href="./">Home</a>
                         {{/if}}
-                        {{#if (eq page_title "Book Info")}}
+                        {{#if (or (eq page_title "Book Info") (eq page_title "Add Books Form"))}}
                         <a class="navbar-brand" href="../">Home</a>
                         {{/if}}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="./products">Products</a>
+                        {{#if (or (eq page_title "Library") (eq page_title "Add Books Form"))}}
+                        <a class="navbar-brand" href="./add_book">Add Books</a>
+                        {{/if}}
+                        {{#if (eq page_title "Book Info")}}
+                        <a class="navbar-brand" href="../add_book">Add Books</a>
+                        {{/if}}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="./about_us">About</a>
