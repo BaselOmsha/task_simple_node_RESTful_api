@@ -1,3 +1,4 @@
+const fs = require('fs');
 const jsonReader = require("../helpers/jsonReader.js");
 
 let booksData = "./books.json"
@@ -19,7 +20,8 @@ const createbook = (req, res) => {
 }
 
 const create = async (req, res) => {
-    if (!req.body.title) {
+    console.log(req.body);
+    if (!req.body.title ||!req.body.isbn ||!req.body.authors ||!req.body.pageCount) {
         res.status(400).json(
             { msg: 'Title was not sent' }
         )
@@ -40,9 +42,10 @@ const create = async (req, res) => {
         await fs.promises.writeFile("books.json", JSON.stringify(data));
 
         const url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${newId}`;
-        res.location(url);
+        res.redirect('../');
+        // res.location(url);
         // res.status(201).location('/api/products/' + newProduct.id).json(newProduct);
-        res.status(201).json(newBook);
+        // res.status(201).json(newBook);
     }
 }
 
