@@ -293,54 +293,5 @@
         "categories": [
             "df, df"
         ]
-    },
-    {
-        "_id": 17,
-        "title": "df",
-        "isbn": "sdf",
-        "pageCount": "34",
-        "publishedDate": {
-            "$date": "2023-04-11T00:00:00.000Z"
-        },
-        "thumbnailUrl": "",
-        "shortDescription": "",
-        "longDescription": "",
-        "status": "",
-        "authors": [
-            [
-                "basel",
-                "lilli"
-            ]
-        ],
-        "categories": [
-            [
-                "scifi",
-                "action",
-                "horror"
-            ]
-        ]
-    },
-    {
-        "_id": 18,
-        "title": "q",
-        "isbn": "q",
-        "pageCount": "2",
-        "publishedDate": {
-            "$date": "2023-04-12T00:00:00.000Z"
-        },
-        "thumbnailUrl": "",
-        "shortDescription": "",
-        "longDescription": "",
-        "status": "",
-        "authors": [
-            "a",
-            "r",
-            "r"
-        ],
-        "categories": [
-            "t",
-            "y",
-            "r"
-        ]
     }
 ]

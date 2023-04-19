@@ -11,4 +11,6 @@ router.post("/newbook", bookesController.create);
 
 router.get("/add_book", bookesController.createbook);
 
+router.get("/delete/:id", bookesController.deleteBook); 
+
 module.exports = router;
