@@ -8,6 +8,7 @@ const createbook = (req, res) => {
     try {
         res.render('createbook', {
             page_title: "Add Books Form",
+            info: "To add multiple authors and catagories seperate them with a comma (,). Mandatory fields are marked with an astrik (*)."
         });
     } catch (err) {
         console.log(err);
