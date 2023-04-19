@@ -38,8 +38,8 @@ const create = async (req, res) => {
             _id: newId, title: req.body.title, isbn: req.body.isbn,
             pageCount: req.body.pageCount, publishedDate: { $date: publishedDate.toISOString() },
             thumbnailUrl: req.body.thumbnailUrl, shortDescription: req.body.shortDescription,
-            longDescription: req.body.longDescription, status: req.body.status, authors: [req.body.authors.split(",").map((author) => author.trim())],
-            categories: [req.body.categories.split(",").map((category) => category.trim())]
+            longDescription: req.body.longDescription, status: req.body.status, authors: req.body.authors.split(",").map((author) => author.trim()),
+            categories: req.body.categories.split(",").map((category) => category.trim())
         }
         data.push(newBook);
 
