@@ -236,5 +236,107 @@
             "Fantasy",
             "Fiction"
         ]
+    },
+    {
+        "_id": 13,
+        "title": "This i",
+        "isbn": "asd",
+        "pageCount": "2345",
+        "publishedDate": {
+            "$date": "2023-04-10T00:00:00.000Z"
+        },
+        "thumbnailUrl": "",
+        "shortDescription": "",
+        "longDescription": "",
+        "status": "",
+        "authors": [
+            "asd, asd"
+        ],
+        "categories": [
+            "test, testi"
+        ]
+    },
+    {
+        "_id": 14,
+        "title": "This is a test",
+        "isbn": "3454675743",
+        "pageCount": "345",
+        "publishedDate": {
+            "$date": "2023-04-14T00:00:00.000Z"
+        },
+        "thumbnailUrl": "http://localhost:5000/add_book",
+        "shortDescription": "test",
+        "longDescription": "Just a test",
+        "status": "Coming Soon",
+        "authors": [
+            "Basel"
+        ],
+        "categories": [
+            "Test"
+        ]
+    },
+    {
+        "_id": 15,
+        "title": "test2",
+        "isbn": "3425346sdfg",
+        "pageCount": "567",
+        "publishedDate": {
+            "$date": "2022-12-21T00:00:00.000Z"
+        },
+        "thumbnailUrl": "http://localhost:5000/add_book",
+        "shortDescription": "test",
+        "longDescription": "test test test test",
+        "status": "Available",
+        "authors": [
+            "tester testing"
+        ],
+        "categories": [
+            "testtest"
+        ]
+    },
+    {
+        "_id": 16,
+        "title": "df",
+        "isbn": "sdf425",
+        "pageCount": "34",
+        "publishedDate": {
+            "$date": "2023-04-18T00:00:00.000Z"
+        },
+        "thumbnailUrl": "",
+        "shortDescription": "",
+        "longDescription": "",
+        "status": "",
+        "authors": [
+            "basel, lilli"
+        ],
+        "categories": [
+            "df, df"
+        ]
+    },
+    {
+        "_id": 17,
+        "title": "df",
+        "isbn": "sdf",
+        "pageCount": "34",
+        "publishedDate": {
+            "$date": "2023-04-11T00:00:00.000Z"
+        },
+        "thumbnailUrl": "",
+        "shortDescription": "",
+        "longDescription": "",
+        "status": "",
+        "authors": [
+            [
+                "basel",
+                "lilli"
+            ]
+        ],
+        "categories": [
+            [
+                "scifi",
+                "action",
+                "horror"
+            ]
+        ]
     }
 ]
