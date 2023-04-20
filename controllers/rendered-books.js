@@ -103,6 +103,69 @@ const getOnebook = async (req, res) => {
     }
 }
 
+// Update one book
+const updatepage = async (req, res) => {
+    try {
+        let data = await jsonReader(booksData);
+        const id = Number(req.params.id);
+        console.log(id);
+        const book = data.find(book => Number(book._id) === id);
+
+        if (book) {
+            res.render('updatebook', {
+                page_title: "Update Books Form",
+                info: "To add multiple authors and catagories seperate them with a comma (,).",
+                content: book
+            });
+        }
+
+    } catch (err) {
+        console.log(err);
+        res.status(404).json(
+            {
+                msg: 'Not found'
+            }
+        );
+    }
+}
+const updateInfo = async (req, res) => {
+    let data = await jsonReader(booksData);
+    const id = Number(req.params.id);
+    console.log("id: " + id);
+    const book = data.find(book => book._id === id);
+    console.log(book);
+
+    const publishedDate = new Date(req.body.publishedDate);
+    const stringDate = publishedDate.toLocaleDateString();
+    console.log("stringdate: " + stringDate);
+
+    if (book) {
+        const updatedBook = {
+            _id: id, title: req.body.title, isbn: req.body.isbn,
+            pageCount: req.body.pageCount, publishedDate: { $date: publishedDate.toISOString() }, thumbnailUrl: req.body.thumbnailUrl,
+            shortDescription: req.body.shortDescription, longDescription: req.body.longDescription, status: req.body.status,
+            authors: req.body.authors.split(",").map((author) => author.trim()),
+            categories: req.body.categories.split(",").map((category) => category.trim())
+        }
+        const filteredBooks = data.filter(book2 => Number(book2._id) !== book._id);
+        // console.log(filteredBooks);
+        // res.json(filteredBooks);
+        if (filteredBooks.length === data.length) {
+            res.status(404).json({
+                msg: 'Product not found'
+            });
+        } else {
+            filteredBooks.push(updatedBook);
+            await fs.promises.writeFile(booksData, JSON.stringify(filteredBooks, null, 2));
+            res.status(200).redirect('../bookpage/' + id);
+        }
+    } else {
+        res.status(404).json(
+            { msg: 'Resource not found' }
+        );
+    }
+}
+
 // DELETE http://localhost:5000/delete/15
 const deleteBook = async (req, res) => {
     try {
@@ -128,9 +191,11 @@ const deleteBook = async (req, res) => {
 }
 
 module.exports = {
-    home,
-    getOnebook,
     create,
     createbook,
+    home,
+    getOnebook,
+    updatepage,
+    updateInfo,
     deleteBook
 };

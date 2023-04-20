@@ -1,0 +1,132 @@
+<h1>{{page_title}}</h1>
+<p>{{info}}</p>
+<form action="../updatedBook/{{content._id}}" method="post" class="form">
+  <div class="form-row">
+    <label for="title" required>Title:</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      required
+      placeholder="Enter title"
+      value="{{content.title}}"
+    />
+
+    <label for="isbn" required>ISBN:</label>
+    <input
+      type="text"
+      name="isbn"
+      id="isbn"
+      required
+      placeholder="Enter ISBN"
+      value="{{content.isbn}}"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="pageCount" required>Page Count:</label>
+    <input
+      type="number"
+      name="pageCount"
+      id="pageCount"
+      required
+      placeholder="Enter page count"
+      value="{{content.pageCount}}"
+    />
+
+    <label for="thumbnailUrl">Thumbnail URL:</label>
+    <input
+      type="url"
+      name="thumbnailUrl"
+      id="thumbnailUrl"
+      placeholder="Enter thumbnail URL"
+      value="{{content.thumbnailUrl}}"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="shortDescription">Short Description:</label>
+    <textarea
+      name="shortDescription"
+      id="shortDescription"
+      placeholder="Enter short description"
+      value=""
+    >{{content.shortDescription}}</textarea>
+
+    <label for="publishedDate">Published Date:</label>
+    <input
+      type="text"
+      name="publishedDate"
+      id="publishedDate"
+      placeholder="Select published date"
+      value="{{dateFormat content.publishedDate.$date}}"
+    />
+  </div>
+
+  <div class="form-row">
+    <label for="longDescription">Long Description:</label>
+    <textarea
+      name="longDescription"
+      id="longDescription"
+      placeholder="Enter long description"
+      value=""
+    >{{content.longDescription}}</textarea>
+
+    <label for="status">Status:</label>
+    <select
+      name="status"
+      id="status"
+      aria-describedby="status-description"
+      value=""
+    >
+      <option value="">Select Status</option>
+      {{#if (eq content.status "Available")}}
+        <option value="Available" selected="selected">Available</option>
+      {{else}}  
+      <option value="Available">Available</option>
+      {{/if}}
+      {{#if (eq content.status "Out of Stock")}}
+        <option value="Out of Stock" selected="selected">Out of Stock</option>
+      {{else}}  
+      <option value="Out of Stock">Out of Stock</option>  
+      {{/if}}
+      {{#if (eq content.status "Coming Soon")}}
+        <option value="Coming Soon" selected="selected">Coming Soon</option>
+      {{else}}  
+      <option value="Coming Soon">Coming Soon</option>  
+      {{/if}}
+      {{#if (eq content.status "PUBLISH")}}
+        <option value="PUBLISH" selected="selected">PUBLISH</option>
+      {{else}}  
+      <option value="PUBLISH">PUBLISH</option>  
+      {{/if}}
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="authors" required>Authors:</label>
+    <input
+      type="text"
+      name="authors"
+      id="authors"
+      required
+      placeholder="Enter author names"
+      value="{{content.authors}}"
+      multiple
+    />
+
+    <label for="categories">Categories:</label>
+    <input
+      type="text"
+      name="categories"
+      id="categories"
+      placeholder="Enter categories"
+      value="{{content.categories}}"
+      multiple
+    />
+  </div>
+
+  <div class="form-row">
+    <input type="submit" value="Submit" class="button" />
+  </div>
+</form>

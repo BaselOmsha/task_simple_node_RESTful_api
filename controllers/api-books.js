@@ -80,6 +80,41 @@ const getOnebook = async (req, res) => {
     }
 }
 
+
+// Update one book
+const updateInfo = async (req, res) => {
+    let data = await jsonReader(booksData);
+    const id = Number(req.params.id);
+    console.log(id);
+    const book = data.find(book => book._id === id);
+    // console.log(book);
+    if (book) {
+        const newBook = {
+            _id: id, title: req.body.title, isbn: req.body.isbn,
+            pageCount: req.body.pageCount, publishedDate: req.body.publishedDate, thumbnailUrl: req.body.thumbnailUrl,
+            shortDescription: req.body.shortDescription, longDescription: req.body.longDescription, status: req.body.status,
+            authors: req.body.authors, categories: req.body.categories
+        }
+        const filteredBooks = data.filter(book2 => Number(book2._id) !== book._id);
+        // console.log(filteredBooks);
+        // res.json(filteredBooks);
+        if (filteredBooks.length === data.length) {
+            res.status(404).json({
+                msg: 'Product not found'
+            });
+        } else {
+            filteredBooks.push(newBook);
+            await fs.promises.writeFile(booksData, JSON.stringify(filteredBooks, null, 2));
+            res.status(200).json(newBook);
+        }
+       
+    } else {
+        res.status(404).json(
+            { msg: 'Resource not found' }
+        );
+    }
+}
+
 // DELETE http://localhost:5000/api/delete/15
 const deleteBook = async (req, res) => {
     try {
@@ -107,5 +142,6 @@ module.exports = {
     create,
     getAll,
     getOnebook,
-    deleteBook
+    deleteBook,
+    updateInfo
 };
