@@ -218,26 +218,6 @@
     ]
   },
   {
-    "_id": 13,
-    "title": "Just a test",
-    "isbn": "test2",
-    "pageCount": "10",
-    "publishedDate": {
-      "$date": "2009-03-31T21:00:00.000Z"
-    },
-    "thumbnailUrl": "http://localhost:5000/update/13",
-    "shortDescription": "test",
-    "longDescription": "test",
-    "status": "",
-    "authors": [
-      "test",
-      "Basel"
-    ],
-    "categories": [
-      "test"
-    ]
-  },
-  {
     "_id": 12,
     "title": "Song of Ice and Fire",
     "isbn": "00",
@@ -256,6 +236,26 @@
       "Fantasy",
       "Fiction",
       "Dark Fantasy"
+    ]
+  },
+  {
+    "_id": 13,
+    "title": "Just a test",
+    "isbn": "test2",
+    "pageCount": "10",
+    "publishedDate": {
+      "$date": "2009-03-31T21:00:00.000Z"
+    },
+    "thumbnailUrl": "http://localhost:5000/update/13",
+    "shortDescription": "test",
+    "longDescription": "test",
+    "status": "",
+    "authors": [
+      "test",
+      "Basel"
+    ],
+    "categories": [
+      "test"
     ]
   }
 ]

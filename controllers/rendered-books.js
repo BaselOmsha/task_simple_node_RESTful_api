@@ -181,7 +181,7 @@ const deleteBook = async (req, res) => {
                 msg: 'Product not found'
             });
         } else {
-            await fs.promises.writeFile(booksData, JSON.stringify(filteredBooks));
+            await fs.promises.writeFile(booksData, JSON.stringify(filteredBooks, null, 2));
             res.status(204).redirect('../');
         }
     } catch (err) {
